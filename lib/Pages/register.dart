@@ -43,15 +43,16 @@ class WrittenPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: black,
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.only(bottom: 600),
-          child: GestureDetector(
-            onTap: () => _showDraggableSheet(context),
-            child: const Text(
+      body: GestureDetector(
+        onTap: () => _showDraggableSheet(context),
+        child: Container(
+          color: black,
+          child: const Center(
+            child: Text(
               "Write_",
               style: TextStyle(
                 fontSize: 40,
+                fontFamily: 'Courier',
                 color: white,
               ),
             ),

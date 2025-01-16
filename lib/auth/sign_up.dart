@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sampling/Pages/edit_page.dart';
 import 'package:sampling/colors.dart';
 
 class SignUpContent extends StatelessWidget {
@@ -12,6 +13,9 @@ class SignUpContent extends StatelessWidget {
         const TextField(
           decoration: InputDecoration(
             hintText: 'Name',
+            hintStyle: TextStyle(
+              color: blue,
+            ),
             filled: true,
             fillColor:white,
             border: OutlineInputBorder(
@@ -24,6 +28,9 @@ class SignUpContent extends StatelessWidget {
         const TextField(
           decoration: InputDecoration(
             hintText: 'Email',
+            hintStyle: TextStyle(
+              color: blue,
+            ),
             filled: true,
             fillColor:white,
             border: OutlineInputBorder(
@@ -37,6 +44,9 @@ class SignUpContent extends StatelessWidget {
           obscureText: true,
           decoration: InputDecoration(
             hintText: 'Password',
+            hintStyle: TextStyle(
+              color: blue,
+            ),
             filled: true,
             fillColor: white,
             border: OutlineInputBorder(
@@ -95,15 +105,20 @@ class SignUpContent extends StatelessWidget {
           ],
         ),
         ElevatedButton(
-          onPressed: () {},
+        onPressed: () => Navigator.push(
+            context,
+            MaterialPageRoute(builder: (
+              context) => const EditPage()
+            ),
+          ),
           style: ElevatedButton.styleFrom(
-            backgroundColor: black,
+            backgroundColor: Colors.black,
             padding: const EdgeInsets.symmetric(vertical: 16.0),
           ),
           child: const Center(
             child: Text(
-              'Sign Up',
-              style: TextStyle(color:white, fontSize: 18),
+              'Sign In',
+              style: TextStyle(color: white, fontSize: 18),
             ),
           ),
         ),

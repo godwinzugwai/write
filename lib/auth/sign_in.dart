@@ -12,6 +12,9 @@ class SignInContent extends StatelessWidget {
         const TextField(
           decoration: InputDecoration(
             hintText: 'Email',
+            hintStyle: TextStyle(
+              color: blue,
+            ),
             filled: true,
             fillColor: white,
             border: OutlineInputBorder(
@@ -25,6 +28,9 @@ class SignInContent extends StatelessWidget {
           obscureText: true,
           decoration: InputDecoration(
             hintText: 'Password',
+            hintStyle: TextStyle(
+              color: blue,
+            ),
             filled: true,
             fillColor: white,
             border: OutlineInputBorder(

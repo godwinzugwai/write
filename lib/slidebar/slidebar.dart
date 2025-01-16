@@ -39,7 +39,7 @@ class _SlidingTabsState extends State<SlidingTabs> with SingleTickerProviderStat
             controller: _tabController,
             indicatorColor: black,
             labelColor: black,
-            unselectedLabelColor: grey,
+            unselectedLabelColor: blue,
             tabs: const [
               Tab(text: "Sign In"),
               Tab(text: "Sign Up"),
