@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sampling/Pages/edit_page.dart';
 import 'package:sampling/Pages/notes_page.dart';
 import 'package:sampling/colors.dart';
 import 'package:sampling/nav_bar.dart/reader_mode.dart';
@@ -12,10 +13,10 @@ class SettingsPage extends StatefulWidget {
 
 class _SettingsPageState extends State<SettingsPage> {
   int _selectedIndex = 2;
-  bool _keyboardS = true;
+  bool _keyboardSettings = true;
   bool _autoSave = true;
-  bool _suggestCh = true;
-  bool _showWor = true;
+  bool _suggestions = true;
+  bool _showWords = true;
 
   void _onItemTapped(int index) {
     setState(() {
@@ -49,26 +50,51 @@ class _SettingsPageState extends State<SettingsPage> {
     return Scaffold(
       backgroundColor: black,
       appBar: AppBar(
-        title: const Text('Settings'),
         backgroundColor: black,
+        title: const Text(
+          'Settings_',
+          style: TextStyle(
+            color: white,
+            fontSize: 24,
+            fontWeight: FontWeight.w500
+          ),
+        ),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            icon: const Icon(
+              Icons.home,
+              color: white),
+            onPressed: () {
+              Navigator.push(context,
+                MaterialPageRoute(
+                  builder: (context) => const EditPage()
+                )
+              );
+            },
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text('WRITING', style: TextStyle(color: greyy, fontSize: 16)),
+            const Text('WRITING',
+            style: TextStyle(color: greyy, fontSize: 16)),
             SwitchListTile(
-              title: const Text('Keyboard S', style: TextStyle(color: white)),
-              value: _keyboardS,
+              title: const Text('Keyboard Settings',
+              style: TextStyle(color: white)),
+              value: _keyboardSettings,
               onChanged: (bool value) {
                 setState(() {
-                  _keyboardS = value;
+                  _keyboardSettings = value;
                 });
               },
             ),
             SwitchListTile(
-              title: const Text('Auto Save', style: TextStyle(color: white)),
+              title: const Text('Auto Save',
+              style: TextStyle(color: white)),
               value: _autoSave,
               onChanged: (bool value) {
                 setState(() {
@@ -77,21 +103,21 @@ class _SettingsPageState extends State<SettingsPage> {
               },
             ),
             SwitchListTile(
-              title: const Text('Suggest Ch',
+              title: const Text('Suggestions',
               style: TextStyle(color: white)),
-              value: _suggestCh,
+              value: _suggestions,
               onChanged: (bool value) {
                 setState(() {
-                  _suggestCh = value;
+                  _suggestions = value;
                 });
               },
             ),
             SwitchListTile(
               title: const Text('Show Word', style: TextStyle(color: white)),
-              value: _showWor,
+              value: _showWords,
               onChanged: (bool value) {
                 setState(() {
-                  _showWor = value;
+                  _showWords = value;
                 });
               },
             ),
@@ -154,7 +180,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 setState(() {
                   _isPrivacyExpanded = expanded;
                 });
-              },
+              }, 
               children: const [],
             ),
           ],

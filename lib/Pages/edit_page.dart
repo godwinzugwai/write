@@ -4,10 +4,46 @@ import 'package:sampling/colors.dart';
 import 'package:sampling/nav_bar.dart/reader_mode.dart';
 import 'package:sampling/nav_bar.dart/settings.dart';
 
-class EditPage extends StatelessWidget {
+class EditPage extends StatefulWidget {
   const EditPage({super.key});
+
+  @override
+  State<EditPage> createState() => _EditPageState();
+}
+
+class _EditPageState extends State<EditPage> {
+  // int _selectedIndex = 2;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      // _selectedIndex = index;              
+    });
+    switch (index) {
+      case 0:
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const NotesPage()),
+        );
+        break;
+      case 1:
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const ReaderModePage())
+        );
+        break;
+      case 2:
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const SettingsPage())
+        );
+        break;
+    }
+  }
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       backgroundColor: black,
       appBar: AppBar(
@@ -87,40 +123,62 @@ class EditPage extends StatelessWidget {
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: black,
-        selectedItemColor: blue,
-        unselectedItemColor: blue,
-        onTap: (index) {
-          if (index == 0) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const NotesPage()),
-            );
-          } else if (index == 1) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const ReaderModePage()),
-            );
-          } else if (index == 2) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const SettingsPage()),
-            );
-          }
-        },
-        items: const [
+        items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.folder),
+            icon: Icon(Icons.folder, color: greyy),
+            activeIcon: Icon(Icons.folder, color: white),
             label: 'Documents',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.book),
+            icon: Icon(Icons.book, color: greyy),
+            activeIcon: Icon(Icons.book, color: white),
             label: 'Reader Mode',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
+            icon: Icon(Icons.settings, color: greyy),
+            activeIcon: Icon(Icons.settings, color: white),
             label: 'Settings',
           ),
         ],
+        // currentIndex: _selectedIndex,
+        selectedItemColor: white,
+        unselectedItemColor: greyy,
+        onTap: _onItemTapped,
+        // backgroundColor: black,
+        // selectedItemColor: blue,
+        // unselectedItemColor: blue,
+        // onTap: (index) {
+        //   if (index == 0) {
+        //     Navigator.push(
+        //       context,
+        //       MaterialPageRoute(builder: (context) => const NotesPage()),
+        //     );
+        //   } else if (index == 1) {
+        //     Navigator.push(
+        //       context,
+        //       MaterialPageRoute(builder: (context) => const ReaderModePage()),
+        //     );
+        //   } else if (index == 2) {
+        //     Navigator.push(
+        //       context,
+        //       MaterialPageRoute(builder: (context) => const SettingsPage()),
+        //     );
+        //   }
+        // },
+        // items: const [
+        //   BottomNavigationBarItem(
+        //     icon: Icon(Icons.folder),
+        //     label: 'Documents',
+        //   ),
+        //   BottomNavigationBarItem(
+        //     icon: Icon(Icons.book),
+        //     label: 'Reader Mode',
+        //   ),
+        //   BottomNavigationBarItem(
+        //     icon: Icon(Icons.settings),
+        //     label: 'Settings',
+        //   ),
+        // ],
       ),
     );
   }

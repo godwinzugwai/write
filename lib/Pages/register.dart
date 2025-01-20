@@ -52,7 +52,7 @@ class WrittenPage extends StatelessWidget {
               "Write_",
               style: TextStyle(
                 fontSize: 40,
-                fontFamily: 'Courier',
+                // fontFamily: 'Courier',
                 color: white,
               ),
             ),
